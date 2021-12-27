@@ -1,16 +1,14 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-
 import { openGraph } from "@/lib/helper";
 
-// !STARTERCONF Change these default meta
 const defaultMeta = {
-  title: "Next.js + Tailwind CSS + TypeScript Starter",
-  siteName: "Next.js + Tailwind CSS + TypeScript Starter",
+  title: "Move to Valencia",
+  siteName: "Move to Valencia",
   description:
-    "A starter for Next.js, Tailwind CSS, and TypeScript with Absolute Import, Seo, Link component, pre-configured with Husky",
-  url: "https://tsnext-tw.thcl.dev",
-  image: "https://theodorusclarence.com/favicon/large-og.jpg",
+    "Everything you need to know about immigrating to Valencia in one place!",
+  url: "https://move2val.com",
+  image: "https://move2val.com/favicon/large-og.jpg",
   type: "website",
   robots: "follow, index",
 };
