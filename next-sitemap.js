@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: "https://move2val.com/",
+  siteUrl: "https://movetovlc.com/",
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [{ userAgent: "*", allow: "/" }],
