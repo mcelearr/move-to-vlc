@@ -1,5 +1,5 @@
 const Admin = () => (
-  <div>
+  <div className="mb-8">
     <h1 className="font-semibold mb-2 text-2xl">Once you get here</h1>
     <p className="font-light mb-2">
       To get 'on the system' there are a few admin tasks that I recommend
