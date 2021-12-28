@@ -1,5 +1,3 @@
-import React from "react";
-
 const Intro = () => (
   <div className="mb-8 mt-40">
     <p className="font-light mb-2">Hi I'm Rory 👋,</p>

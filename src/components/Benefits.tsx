@@ -1,4 +1,3 @@
-import React from "react";
 import Benefit from "./Benefit";
 
 const benefits = [

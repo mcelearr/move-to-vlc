@@ -1,4 +1,3 @@
-import React from "react";
 import Visa from "./Visa";
 
 const visas = [

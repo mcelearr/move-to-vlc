@@ -1,5 +1,3 @@
-import React from "react";
-
 const Admin = () => (
   <div>
     <h1 className="font-semibold mb-2 text-2xl">Once you get here</h1>

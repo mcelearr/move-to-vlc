@@ -1,6 +1,4 @@
-import React from "react";
 import { Formik, Form, Field, FormikHelpers } from "formik";
-import { supabase } from "@/utils/supabaseClient";
 
 interface Values {
   firstName: string;
@@ -22,14 +20,7 @@ const AdvisorForm = () => {
           { setSubmitting }: FormikHelpers<Values>
         ) => {
           try {
-            const { error } = await supabase
-              .from("entries")
-              .insert([{ ...values }])
-              .single();
-
-            if (error) {
-              throw error;
-            }
+            console.log(values);
           } catch (error) {
             console.error(error.message);
           } finally {
