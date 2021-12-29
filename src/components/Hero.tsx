@@ -1,7 +1,7 @@
 const Hero = () => {
   return (
     <section>
-      <div className="absolute bg-white border border-gray-200 left-0 ml-auto mr-auto mt-40 px-4 py-4 right-0 rounded-md text-center w-96 z-1">
+      <div className="absolute bg-white border border-gray-200 left-0 ml-auto mr-auto mt-28 px-4 py-4 right-0 rounded-md text-center w-80 z-1 md:mt-40 md:w-96">
         <h1 className="font-semibold mb-3 text-6xl">Move to Valencia</h1>
         <h2 className="font-light text-2xl">
           Everything you need to know about immigrating to Valencia in one
