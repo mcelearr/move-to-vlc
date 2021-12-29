@@ -31,7 +31,10 @@ const WaitingListForm = () => {
         <Form>
           <div className="-mx-3 flex flex-wrap mb-6">
             <div className="mb-6 px-4 w-full md:mb-0 md:w-1/2">
-              <label className="block font-semibold mb-2" htmlFor="firstName">
+              <label
+                className="block dark:text-gray-800 font-semibold mb-2"
+                htmlFor="firstName"
+              >
                 First Name
               </label>
               <p className="font-light text-gray-400">
@@ -44,7 +47,10 @@ const WaitingListForm = () => {
               />
             </div>
             <div className="px-4 w-full md:w-1/2">
-              <label className="block font-semibold mb-2" htmlFor="lastName">
+              <label
+                className="block dark:text-gray-800 font-semibold mb-2"
+                htmlFor="lastName"
+              >
                 Last Name
               </label>
               <p className="font-light text-gray-400">
@@ -59,7 +65,10 @@ const WaitingListForm = () => {
           </div>
           <div className="-mx-3 flex flex-wrap mb-6">
             <div className="px-4 w-full">
-              <label className="block font-semibold mb-2" htmlFor="email">
+              <label
+                className="block dark:text-gray-800 font-semibold mb-2"
+                htmlFor="email"
+              >
                 Email
               </label>
               <p className="font-light text-gray-400">
@@ -75,7 +84,7 @@ const WaitingListForm = () => {
               />
             </div>
           </div>
-          <p className="font-light">
+          <p className="dark:text-gray-800 font-light">
             The Spanish Government has not released all the details about the
             Nomad Visa yet - it is due to arrive in summer 2022. There is likely
             to be high demand and long wait times once the scheme goes live. By

@@ -31,7 +31,10 @@ const AdvisorForm = () => {
         <Form>
           <div className="-mx-3 flex flex-wrap mb-6">
             <div className="mb-6 px-4 w-full md:mb-0 md:w-1/2">
-              <label className="block font-semibold mb-2" htmlFor="firstName">
+              <label
+                className="block dark:text-gray-800 font-semibold mb-2"
+                htmlFor="firstName"
+              >
                 First Name
               </label>
               <p className="font-light text-gray-400">
@@ -44,7 +47,10 @@ const AdvisorForm = () => {
               />
             </div>
             <div className="px-4 w-full md:w-1/2">
-              <label className="block font-semibold mb-2" htmlFor="lastName">
+              <label
+                className="block dark:text-gray-800 font-semibold mb-2"
+                htmlFor="lastName"
+              >
                 Last Name
               </label>
               <p className="font-light text-gray-400">
@@ -59,7 +65,10 @@ const AdvisorForm = () => {
           </div>
           <div className="-mx-3 flex flex-wrap mb-6">
             <div className="px-4 w-full">
-              <label className="block font-semibold mb-2" htmlFor="email">
+              <label
+                className="block dark:text-gray-800 font-semibold mb-2"
+                htmlFor="email"
+              >
                 Email
               </label>
               <p className="font-light text-gray-400">
@@ -76,7 +85,10 @@ const AdvisorForm = () => {
           </div>
           <div className="-mx-3 flex flex-wrap mb-6">
             <div className="px-4 w-full">
-              <label className="block font-semibold mb-2" htmlFor="phone">
+              <label
+                className="block dark:text-gray-800 font-semibold mb-2"
+                htmlFor="phone"
+              >
                 Phone
               </label>
               <p className="font-light text-gray-400">
@@ -92,7 +104,10 @@ const AdvisorForm = () => {
           </div>
           <div className="-mx-3 flex flex-wrap mb-6">
             <div className="px-4 w-full">
-              <label className="block font-semibold mb-2" htmlFor="advisorType">
+              <label
+                className="block dark:text-gray-800 font-semibold mb-2"
+                htmlFor="advisorType"
+              >
                 Advisor Type
               </label>
               <p className="font-light text-gray-400">
@@ -104,7 +119,7 @@ const AdvisorForm = () => {
               </p>
               <Field
                 as="select"
-                className="border border-gray-200 leading-tight px-4 py-3 rounded-md w-full"
+                className="border border-gray-200 dark:text-gray-800 leading-tight px-4 py-3 rounded-md w-full"
                 id="advisorType"
                 name="advisorType"
               >
@@ -119,7 +134,10 @@ const AdvisorForm = () => {
           </div>
           <div className="-mx-3 flex flex-wrap mb-6">
             <div className="mb-6 px-4 w-full md:mb-0 md:w-1/2">
-              <label className="block font-semibold mb-2" htmlFor="dob">
+              <label
+                className="block dark:text-gray-800 font-semibold mb-2"
+                htmlFor="dob"
+              >
                 Date of birth
               </label>
               <p className="font-light text-gray-400">
@@ -132,7 +150,10 @@ const AdvisorForm = () => {
               />
             </div>
             <div className="px-4 w-full md:w-1/2">
-              <label className="block font-semibold mb-2" htmlFor="gender">
+              <label
+                className="block dark:text-gray-800 font-semibold mb-2"
+                htmlFor="gender"
+              >
                 Gender
               </label>
               <p className="font-light text-gray-400">
@@ -147,7 +168,10 @@ const AdvisorForm = () => {
           </div>
           <div className="-mx-3 flex flex-wrap mb-6">
             <div className="mb-6 px-4 w-full md:mb-0 md:w-1/2">
-              <label className="block font-semibold mb-2" htmlFor="nationality">
+              <label
+                className="block dark:text-gray-800 font-semibold mb-2"
+                htmlFor="nationality"
+              >
                 Nationality
               </label>
               <p className="font-light text-gray-400">
@@ -160,7 +184,10 @@ const AdvisorForm = () => {
               />
             </div>
             <div className="px-4 w-full md:w-1/2">
-              <label className="block font-semibold mb-2" htmlFor="location">
+              <label
+                className="block dark:text-gray-800 font-semibold mb-2"
+                htmlFor="location"
+              >
                 Location
               </label>
               <p className="font-light text-gray-400">
@@ -175,7 +202,10 @@ const AdvisorForm = () => {
           </div>
           <div className="-mx-3 flex flex-wrap mb-6">
             <div className="px-4 w-full">
-              <label className="block font-semibold mb-2" htmlFor="residence">
+              <label
+                className="block dark:text-gray-800 font-semibold mb-2"
+                htmlFor="residence"
+              >
                 Residence
               </label>
               <p className="font-light text-gray-400">
@@ -191,7 +221,7 @@ const AdvisorForm = () => {
               />
             </div>
           </div>
-          <p className="font-light">
+          <p className="dark:text-gray-800 font-light">
             After clicking the button below, you will be redirected to complete
             payment for your first onboarding call. This is non-refundable. This
             is only for the onboarding call. By submitting information on this
