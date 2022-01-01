@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Formik, Form, Field, FormikHelpers } from "formik";
 import { AdvisorFormValues, EMAIL_TYPE } from "@/types";
+import * as ga from "@/lib/ga";
 
 const advisorFormInitialValues: AdvisorFormValues = {
   firstName: "",
@@ -23,6 +24,13 @@ const AdvisorForm = () => {
     <div className="bg-white border border-gray-200 px-5 py-5 rounded-md w-full">
       <Formik
         initialValues={advisorFormInitialValues}
+        validate={(values) => {
+          ga.event({
+            action: "advisor_form",
+            params: values,
+          });
+          return;
+        }}
         onSubmit={async (
           values: AdvisorFormValues,
           { setSubmitting }: FormikHelpers<AdvisorFormValues>
@@ -43,7 +51,6 @@ const AdvisorForm = () => {
                   return values.advisorType;
               }
             })();
-            console.log(type);
             const res = await fetch("/api/sendgrid", {
               body: JSON.stringify({
                 values,
@@ -169,9 +176,7 @@ const AdvisorForm = () => {
                   name="advisorType"
                   required
                 >
-                  <option value="lawyer" selected>
-                    €150 Immigration & Tax Advisor
-                  </option>
+                  <option value="lawyer">€150 Immigration & Tax Advisor</option>
                   <option value="gestor">
                     €50 Admin (NIE, Bank Account etc.)
                   </option>

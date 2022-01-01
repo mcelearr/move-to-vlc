@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { EMAIL_TYPE, WaitingListFormValues } from "@/types";
 import { Formik, Form, Field, FormikHelpers } from "formik";
+import { EMAIL_TYPE, WaitingListFormValues } from "@/types";
+import * as ga from "@/lib/ga";
 
 const waitingListFormInitialValues: WaitingListFormValues = {
   firstName: "",
@@ -16,6 +17,13 @@ const WaitingListForm = () => {
     <div className="bg-white border border-gray-200 px-5 py-5 rounded-md w-full">
       <Formik
         initialValues={waitingListFormInitialValues}
+        validate={(values) => {
+          ga.event({
+            action: "advisor_form",
+            params: values,
+          });
+          return;
+        }}
         onSubmit={async (
           values: WaitingListFormValues,
           { setSubmitting }: FormikHelpers<WaitingListFormValues>
