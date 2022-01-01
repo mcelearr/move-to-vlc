@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Formik, Form, Field, FormikHelpers } from "formik";
 import { AdvisorFormValues, EMAIL_TYPE } from "@/types";
-import * as ga from "@/lib/ga";
 
 const advisorFormInitialValues: AdvisorFormValues = {
   firstName: "",
@@ -24,13 +23,6 @@ const AdvisorForm = () => {
     <div className="bg-white border border-gray-200 px-5 py-5 rounded-md w-full">
       <Formik
         initialValues={advisorFormInitialValues}
-        validate={(values) => {
-          ga.event({
-            action: "advisor_form",
-            params: values,
-          });
-          return;
-        }}
         onSubmit={async (
           values: AdvisorFormValues,
           { setSubmitting }: FormikHelpers<AdvisorFormValues>
@@ -143,7 +135,7 @@ const AdvisorForm = () => {
                   Phone
                 </label>
                 <p className="font-light text-gray-400">
-                  International format e.g. +34612033295
+                  Include country code e.g. +34612033295
                 </p>
                 <Field
                   className="border border-gray-200 leading-tight px-4 py-3 rounded-md w-full"
@@ -163,11 +155,13 @@ const AdvisorForm = () => {
                   Advisor Type
                 </label>
                 <p className="font-light text-gray-400">
-                  This is the cost of a 1hr onboarding call. This is
-                  non-refundable. This is only for the onboarding call. To
-                  actually apply for a visa or set up a bank account will cost
-                  more. All the advisors we work with have either personally
-                  helped me or been personally recommended to me.
+                  There are two types of advisor: Immigration & Tax lawyers and
+                  Gestors. If you are interested in a consultation about getting
+                  a visa or taxes, select 'Immigration & Tax lawyer'. The price
+                  is €100 for a 1 hr call. If you are interested in a
+                  consultation about getting a NIE, getting a bank account or
+                  any other administrative task, select 'Gestor'.The price is
+                  €50 for a 1 hr call.
                 </p>
                 <Field
                   as="select"
@@ -176,9 +170,9 @@ const AdvisorForm = () => {
                   name="advisorType"
                   required
                 >
-                  <option value="lawyer">€150 Immigration & Tax Advisor</option>
+                  <option value="lawyer">€100 Immigration & Tax Advisor</option>
                   <option value="gestor">
-                    €50 Admin (NIE, Bank Account etc.)
+                    €50 Gestor (NIE, Bank Account etc.)
                   </option>
                 </Field>
               </div>
