@@ -159,8 +159,10 @@ const AdvisorForm = () => {
                   name="advisorType"
                   required
                 >
-                  <option value="lawyer">€100 Immigration & Tax Advisor</option>
-                  <option value="gestor">
+                  <option value={SERVICE_TYPE.LAWYER}>
+                    €100 Immigration & Tax Advisor
+                  </option>
+                  <option value={SERVICE_TYPE.GESTOR}>
                     €50 Gestor (NIE, Bank Account etc.)
                   </option>
                 </Field>
