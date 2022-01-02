@@ -90,6 +90,7 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
           </html>`,
         });
       } catch (error) {
+        console.error(error);
         res.status(500).end(error);
       }
       console.log(`💰 PaymentIntent status: ${paymentIntent.status}`);
