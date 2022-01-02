@@ -36,7 +36,7 @@ const Advisor = () => {
       >
         <button
           className={`tab ${size.width < 600 ? "" : "tab-lg"} tab-lifted ${
-            openTab === 1 ? "tab-active" : ""
+            openTab === 1 ? "tab-active" : "text-gray-600"
           } ${size.width < 600 ? "" : "text-lg"}`}
           onClick={(e) => {
             e.preventDefault();
@@ -49,7 +49,7 @@ const Advisor = () => {
         </button>
         <button
           className={`tab ${size.width < 600 ? "" : "tab-lg"} tab-lifted ${
-            openTab === 2 ? "tab-active" : ""
+            openTab === 2 ? "tab-active" : "text-gray-600"
           } ${size.width < 600 ? "" : "text-lg"}`}
           onClick={(e) => {
             e.preventDefault();
