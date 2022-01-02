@@ -31,11 +31,14 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
           <div style="display: flex;justify-content: center;align-items: center;border-radius: 5px;overflow: hidden; font-family: 'Gill Sans';">
                 </div>
                 <div style="margin-left: 20px;margin-right: 20px;">
-                <h3>Hey ${body.firstName}, thanks so much for signing up to the waiting list</h3>
+                <h3>Hey ${body.firstName},</h3>
                 <div style="font-size: 16px;">
+                <p>Thanks so much for signing up to the Nomad Visa waiting list. As promised, this isn't a mailing list. I will only contact you with news about the Nomad Visa.</p>
+                <p>Additionally when the visa becomes available, you will have prioritised access to our advisors. If you ever want to be removed from the waiting list, just let me know.</p>
+                <p>If you're interested in how I created the site, why not give me a follow on <a href="https://twitter.com/RMcElearney">Twitter</a>. I will be tweeting updates and about the technology I used to create it.</p>
                 <br>
                 </div>
-                <p class="footer" style="font-size: 16px;padding-bottom: 20px;border-bottom: 1px solid #D1D5DB;">Regards<br>Rory McElearney<br>https://movetovlc.com<br><a href="https://twitter.com/RMcElearney">https://twitter.com/RMcElearney<a></p>
+                <p class="footer" style="font-size: 16px;padding-bottom: 20px;border-bottom: 1px solid #D1D5DB;">Chat soon!<br>Rory<br>https://movetovlc.com<br></p>
                 </div>
         </body>
         </html>`,
