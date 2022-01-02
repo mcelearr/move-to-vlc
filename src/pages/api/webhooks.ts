@@ -49,6 +49,9 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     // Cast event data to Stripe object.
     if (event.type === "payment_intent.succeeded") {
       const paymentIntent = event.data.object as Stripe.PaymentIntent;
+      if (!Object.entries(paymentIntent.metadata).length) {
+        res.status(400).end("metadata has not been set on payment_intent");
+      }
       const values = paymentIntent.metadata as unknown as AdvisorFormValues;
       try {
         await sendgrid.send({
