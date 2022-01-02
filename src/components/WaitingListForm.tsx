@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Formik, Form, Field, FormikHelpers } from "formik";
-import { EMAIL_TYPE, WaitingListFormValues } from "@/types";
-import * as ga from "@/lib/ga";
+import { WaitingListFormValues } from "@/types";
+import { fetchPostJSON } from "@/utils/api-helpers";
 
 const waitingListFormInitialValues: WaitingListFormValues = {
   firstName: "",
@@ -17,31 +17,14 @@ const WaitingListForm = () => {
     <div className="bg-white border border-gray-200 px-5 py-5 rounded-md w-full">
       <Formik
         initialValues={waitingListFormInitialValues}
-        validate={(values) => {
-          ga.event({
-            action: "advisor_form",
-            params: values,
-          });
-          return;
-        }}
         onSubmit={async (
           values: WaitingListFormValues,
           { setSubmitting }: FormikHelpers<WaitingListFormValues>
         ) => {
           setSubmitting(true);
           try {
-            const res = await fetch("/api/sendgrid", {
-              body: JSON.stringify({
-                values,
-                type: EMAIL_TYPE.NOMAD_WAITING_LIST,
-              }),
-              headers: {
-                "Content-Type": "application/json",
-              },
-              method: "POST",
-            });
+            const { error } = await fetchPostJSON("/api/waiting-list", values);
 
-            const { error } = await res.json();
             if (error) throw error;
             setEmailError(false);
             setEmailSuccess(true);

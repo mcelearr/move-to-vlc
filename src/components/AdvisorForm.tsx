@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { Formik, Form, Field, FormikHelpers } from "formik";
-import { AdvisorFormValues, EMAIL_TYPE } from "@/types";
+import Stripe from "stripe";
+import { AdvisorFormValues, SERVICE_TYPE } from "@/types";
+import { fetchPostJSON } from "@/utils/api-helpers";
+import getStripe from "@/utils/get-stripe";
 
 const advisorFormInitialValues: AdvisorFormValues = {
   firstName: "",
   lastName: "",
   email: "",
   phone: "",
-  advisorType: "lawyer",
+  advisorType: SERVICE_TYPE.LAWYER,
   dob: "",
   gender: "",
   nationality: "",
@@ -28,36 +31,23 @@ const AdvisorForm = () => {
           { setSubmitting }: FormikHelpers<AdvisorFormValues>
         ) => {
           try {
-            const type = (() => {
-              switch (values.advisorType) {
-                case "lawyer":
-                  return EMAIL_TYPE.LAWYER;
+            const checkoutSession: Stripe.Checkout.Session =
+              await fetchPostJSON("/api/advisor", values);
 
-                case "gestor":
-                  return EMAIL_TYPE.GESTOR;
+            if ((checkoutSession as any).statusCode === 500) {
+              console.error((checkoutSession as any).message);
+              return;
+            }
 
-                default:
-                  console.error(
-                    `Advisor Type ${values.advisorType} not recognized`
-                  );
-                  return values.advisorType;
-              }
-            })();
-            const res = await fetch("/api/sendgrid", {
-              body: JSON.stringify({
-                values,
-                type,
-              }),
-              headers: {
-                "Content-Type": "application/json",
-              },
-              method: "POST",
+            const stripe = await getStripe();
+            const { error } = await stripe!.redirectToCheckout({
+              // Make the id field from the Checkout Session creation API response
+              // available to this file, so you can provide it as parameter here
+              // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
+              sessionId: checkoutSession.id,
             });
 
-            const { error } = await res.json();
             if (error) throw error;
-            setEmailError(false);
-            setEmailSuccess(true);
           } catch (error) {
             setEmailError(true);
             setEmailSuccess(false);
