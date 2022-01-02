@@ -12,7 +12,6 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const body: AdvisorFormValues = req.body;
-  console.log("body>>>>", body);
   if (req.method === "POST") {
     const amount = (() => {
       switch (body.advisorType) {
@@ -46,11 +45,6 @@ export default async function handler(
       };
       const checkoutSession: Stripe.Checkout.Session =
         await stripe.checkout.sessions.create(params);
-
-      console.log(
-        "checkoutSession.payment_intent>>>>>",
-        checkoutSession.payment_intent
-      );
 
       res.status(200).json(checkoutSession);
     } catch (err) {

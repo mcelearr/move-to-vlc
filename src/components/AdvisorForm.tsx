@@ -31,7 +31,6 @@ const AdvisorForm = () => {
           { setSubmitting }: FormikHelpers<AdvisorFormValues>
         ) => {
           try {
-            console.log("values>>>>>>>>", values);
             const checkoutSession: Stripe.Checkout.Session =
               await fetchPostJSON("/api/advisor", values);
 

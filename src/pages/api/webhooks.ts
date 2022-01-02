@@ -54,7 +54,6 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
       if (!Object.entries(paymentIntent.metadata).length) {
         res.status(400).end("metadata has not been set on payment_intent");
       }
-      console.log("paymentIntent.metadata>>>>>>", paymentIntent.metadata);
       const values = paymentIntent.metadata as unknown as AdvisorFormValues;
       try {
         await sendgrid.send({
