@@ -7,8 +7,8 @@ const defaultMeta = {
   siteName: "Move to Valencia",
   description:
     "Everything you need to know about immigrating to Valencia in one place!",
-  url: "https://move2val.com",
-  image: "https://move2val.com/favicon/large-og.jpg",
+  url: "https://movetovlc.com",
+  image: "https://movetovlc.com/favicon/favicon-96x96.png",
   type: "website",
   robots: "follow, index",
 };
