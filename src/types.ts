@@ -1,7 +1,7 @@
-export enum EMAIL_TYPE {
-  LAWYER = "LAWYER",
-  GESTOR = "GESTOR",
-  NOMAD_WAITING_LIST = "NOMAD_WAITING_LIST",
+export enum SERVICE_TYPE {
+  LAWYER = "Lawyer",
+  GESTOR = "Gestor",
+  NOMAD_WAITING_LIST = "Nomad Visa Waiting List",
 }
 
 export interface AdvisorFormValues {
@@ -9,7 +9,7 @@ export interface AdvisorFormValues {
   lastName: string;
   email: string;
   phone: string;
-  advisorType: string;
+  advisorType: SERVICE_TYPE;
   dob: string;
   gender: string;
   nationality: string;
@@ -23,28 +23,10 @@ export interface WaitingListFormValues {
   email: string;
 }
 
-interface LawyerRequest {
-  body: {
-    values: AdvisorFormValues;
-    type: EMAIL_TYPE.LAWYER;
-  };
+export interface AdvisorRequest {
+  body: AdvisorFormValues;
 }
 
-interface GestorRequest {
-  body: {
-    values: AdvisorFormValues;
-    type: EMAIL_TYPE.GESTOR;
-  };
+export interface WaitingListRequest {
+  body: WaitingListFormValues;
 }
-
-interface WaitingListRequest {
-  body: {
-    values: WaitingListFormValues;
-    type: EMAIL_TYPE.NOMAD_WAITING_LIST;
-  };
-}
-
-export type SendgridRequest =
-  | LawyerRequest
-  | GestorRequest
-  | WaitingListRequest;
