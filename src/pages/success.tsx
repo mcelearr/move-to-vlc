@@ -25,9 +25,6 @@ export default function Success() {
         <main>
           <div className="pt-8">
             <h1 className="mb-8 text-2xl">Payment Successful</h1>
-            <h2 className="mb-4">
-              Status: {data?.payment_intent?.status ?? "loading..."}
-            </h2>
             <p className="font-light mb-2">
               Thanks so much for trusting in us to help you get settled in
               Valencia! 🎉🎉🎉

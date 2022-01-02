@@ -16,6 +16,8 @@ const advisorFormInitialValues: AdvisorFormValues = {
   nationality: "",
   location: "",
   residence: "",
+  job: "",
+  comments: "",
 };
 
 const AdvisorForm = () => {
@@ -142,9 +144,9 @@ const AdvisorForm = () => {
                   Advisor Type
                 </label>
                 <p className="font-light text-gray-400">
-                  There are two types of advisor: Immigration & Tax lawyers and
-                  Gestors. If you are interested in a consultation about getting
-                  a visa or taxes, select 'Immigration & Tax lawyer'. The price
+                  There are two types of advisor: Immigration & Tax Advisor and
+                  Gestor. If you are interested in a consultation about getting
+                  a visa or taxes, select 'Immigration & Tax Advisor'. The price
                   is €100 for a 1 hr call. If you are interested in a
                   consultation about getting a NIE, getting a bank account or
                   any other administrative task, select 'Gestor'.The price is
@@ -226,7 +228,7 @@ const AdvisorForm = () => {
                   Location
                 </label>
                 <p className="font-light text-gray-400">
-                  In which country are you staying now?
+                  Which country are you in right now?
                 </p>
                 <Field
                   className="border border-gray-200 leading-tight px-4 py-3 rounded-md w-full"
@@ -245,10 +247,8 @@ const AdvisorForm = () => {
                   Residence
                 </label>
                 <p className="font-light text-gray-400">
-                  What's your current legal country of residence? This is the
-                  country you're legally registered as a resident at the city or
-                  country government. If you don't have one now, use your last
-                  known.
+                  What country are you legally registered in as a resident? If
+                  it's not clear the put your last known residence.
                 </p>
                 <Field
                   className="border border-gray-200 leading-tight px-4 py-3 rounded-md w-full"
@@ -258,27 +258,54 @@ const AdvisorForm = () => {
                 />
               </div>
             </div>
+            <div className="-mx-3 flex flex-wrap mb-6">
+              <div className="px-4 w-full">
+                <label
+                  className="block dark:text-gray-800 font-semibold mb-2"
+                  htmlFor="job"
+                >
+                  How do you make money?
+                </label>
+                <p className="font-light text-gray-400">
+                  What job title(s) do you have plus any other ways you make
+                  money? e.g. Sales for pharmaceutical company, english teacher
+                  in primary school, software developer + crypto trading, yoga
+                  instructor
+                </p>
+                <Field
+                  className="border border-gray-200 leading-tight px-4 py-3 rounded-md w-full"
+                  id="job"
+                  name="job"
+                  required
+                />
+              </div>
+            </div>
+            <div className="-mx-3 flex flex-wrap mb-6">
+              <div className="px-4 w-full">
+                <label
+                  className="block dark:text-gray-800 font-semibold mb-2"
+                  htmlFor="comments"
+                >
+                  What type of service are you interested in?
+                </label>
+                <p className="font-light text-gray-400">
+                  Is there a particular visa or gestor service that you are
+                  interested in? This is to help our advisors best prepare for
+                  the call.
+                </p>
+                <Field
+                  className="border border-gray-200 leading-tight px-4 py-3 rounded-md w-full"
+                  id="comments"
+                  name="comments"
+                  required
+                />
+              </div>
+            </div>
             <p className="dark:text-gray-800 font-light">
-              After clicking the button below, you will be redirected to
-              complete payment for your first onboarding call. This is
-              non-refundable. This is only for the onboarding call. By
-              submitting information on this website, you agree that this
+              By submitting information on this website, you agree that this
               information will be shared with third-parties for the purpose of
               providing you with the product and/or service you requested.
             </p>
-            {emailError && (
-              <p className="font-light text-red-600 text-sm">
-                Error setting up a meeting. Sorry! My DMs are open on{" "}
-                <a href="https://twitter.com/RMcElearney" className="underline">
-                  Twitter
-                </a>
-              </p>
-            )}
-            {emailSuccess && (
-              <p className="font-light text-gray-600 text-sm">
-                Check your inbox, you should have a confirmation email from me.
-              </p>
-            )}
             <button
               className="bg-gray-800 focus:outline-none focus:ring-2 font-semibold mt-4 px-6 py-3 rounded-md text-lg text-white w-full"
               type="submit"

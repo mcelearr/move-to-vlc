@@ -6,7 +6,10 @@ interface Props {
 const Benefit = (props: Props) => (
   <div className="mb-2">
     <h2 className="font-semibold">⭐ {props.header}</h2>
-    <p className="font-light">{props.description}</p>
+    <p
+      className="font-light"
+      dangerouslySetInnerHTML={{ __html: props.description }}
+    ></p>
   </div>
 );
 

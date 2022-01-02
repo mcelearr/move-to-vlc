@@ -15,6 +15,8 @@ export interface AdvisorFormValues {
   nationality: string;
   location: string;
   residence: string;
+  job: string;
+  comments: string;
 }
 
 export interface WaitingListFormValues {

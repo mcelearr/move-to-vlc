@@ -11,11 +11,11 @@ const Advisor = () => {
       <h1 className="font-semibold mb-2 text-2xl">Speak to an advisor</h1>
       <p className="font-light mb-2">
         Do you want help applying for a visa or getting things set up?
-        Navigating Spanish bureaucracy can be a time-consuming headache. Connect
-        with a professional advisor to guide you through the process, starting
-        with an 1 hr onboarding call paid for through this website using Stripe.
-        The cost for a 1hr onboarding call is €150 for an Immigration & Tax
-        advisor and €50 for all other services.
+        Navigating Spanish bureaucracy can be a time-consuming headache. We've
+        partnered with some great local operators who provide professional
+        services to guide you through the process, starting with an 1 hr
+        consultation call paid for through this website. The cost for a 1 hr
+        call is €100 for an Immigration & Tax advisor and €50 for a Gestor.
       </p>
       <p className="font-light mb-2">
         Are you interested in the Nomad Visa which comes out in summer 2022?

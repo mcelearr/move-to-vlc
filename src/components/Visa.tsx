@@ -14,7 +14,12 @@ const Visa = (props: Props) => (
           {props.linkText}
         </span>
       </h3>
-      <p className="dark:text-gray-800 font-light">{`${props.description}`}</p>
+      <p
+        dangerouslySetInnerHTML={{ __html: props.description }}
+        className="dark:text-gray-800 font-light"
+      >
+        {}
+      </p>
     </div>
   </a>
 );

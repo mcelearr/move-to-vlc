@@ -84,9 +84,9 @@ const WaitingListForm = () => {
                   Email
                 </label>
                 <p className="font-light text-gray-400">
-                  This is NOT a mailing list. I will only send you emails
-                  specifically about the Nomad Visa. News about the rollout
-                  date, documents you need to get ready etc.
+                  This is NOT a mailing list. We will only send you emails
+                  specifically about the Nomad Visa. e.g. News aboutwhen it will
+                  be available and what documents you need to get ready.
                 </p>
                 <Field
                   required
