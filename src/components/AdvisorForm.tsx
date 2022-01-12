@@ -1,18 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Formik, Form, Field, FormikHelpers } from "formik";
-import Stripe from "stripe";
-import { AdvisorFormValues, SERVICE_TYPE } from "@/types";
+import countryList from "react-select-country-list";
+import { AdvisorFormValues } from "@/types";
 import { fetchPostJSON } from "@/utils/api-helpers";
-import getStripe from "@/utils/get-stripe";
+import { SERVICES } from "@/constants";
 
 const advisorFormInitialValues: AdvisorFormValues = {
   firstName: "",
   lastName: "",
   email: "",
   phone: "",
-  advisorType: SERVICE_TYPE.LAWYER,
-  dob: "",
-  gender: "",
+  services: [],
   nationality: "",
   location: "",
   residence: "",
@@ -21,6 +19,13 @@ const advisorFormInitialValues: AdvisorFormValues = {
 };
 
 const AdvisorForm = () => {
+  const [countries, setCountries] = useState([]);
+  useEffect(() => {
+    setCountries([
+      { value: "", label: "Select a Country" },
+      ...countryList().getData(),
+    ]);
+  }, []);
   const [emailError, setEmailError] = useState(false);
   const [emailSuccess, setEmailSuccess] = useState(false);
 
@@ -33,20 +38,11 @@ const AdvisorForm = () => {
           { setSubmitting }: FormikHelpers<AdvisorFormValues>
         ) => {
           try {
-            const checkoutSession: Stripe.Checkout.Session =
-              await fetchPostJSON("/api/advisor", values);
-
-            if ((checkoutSession as any).statusCode === 500) {
-              console.error((checkoutSession as any).message);
-              return;
-            }
-
-            const stripe = await getStripe();
-            const { error } = await stripe!.redirectToCheckout({
-              sessionId: checkoutSession.id,
-            });
+            const { error } = await fetchPostJSON("/api/advisor", values);
 
             if (error) throw error;
+            setEmailError(false);
+            setEmailSuccess(true);
           } catch (error) {
             setEmailError(true);
             setEmailSuccess(false);
@@ -136,76 +132,7 @@ const AdvisorForm = () => {
               </div>
             </div>
             <div className="-mx-3 flex flex-wrap mb-6">
-              <div className="px-4 w-full">
-                <label
-                  className="block dark:text-gray-800 font-semibold mb-2"
-                  htmlFor="advisorType"
-                >
-                  Advisor Type
-                </label>
-                <p className="font-light text-gray-400">
-                  There are two types of advisor: Immigration & Tax Advisor and
-                  Gestor. If you are interested in a consultation about getting
-                  a visa or taxes, select 'Immigration & Tax Advisor'. The price
-                  is €100 for a 1 hr call. If you are interested in a
-                  consultation about getting a NIE, getting a bank account or
-                  any other administrative task, select 'Gestor'.The price is
-                  €50 for a 1 hr call.
-                </p>
-                <Field
-                  as="select"
-                  className="border border-gray-200 dark:text-gray-800 leading-tight px-4 py-3 rounded-md w-full"
-                  id="advisorType"
-                  name="advisorType"
-                  required
-                >
-                  <option value={SERVICE_TYPE.LAWYER}>
-                    €100 Immigration & Tax Advisor
-                  </option>
-                  <option value={SERVICE_TYPE.GESTOR}>
-                    €50 Gestor (NIE, Bank Account etc.)
-                  </option>
-                </Field>
-              </div>
-            </div>
-            <div className="-mx-3 flex flex-wrap mb-6">
-              <div className="mb-6 px-4 w-full md:mb-0 md:w-1/2">
-                <label
-                  className="block dark:text-gray-800 font-semibold mb-2"
-                  htmlFor="dob"
-                >
-                  Date of birth
-                </label>
-                <p className="font-light text-gray-400">
-                  YYYY-MM-DD format (year-month-day)
-                </p>
-                <Field
-                  className="border border-gray-200 leading-tight px-4 py-3 rounded-md w-full"
-                  id="dob"
-                  name="dob"
-                  required
-                />
-              </div>
-              <div className="px-4 w-full md:w-1/2">
-                <label
-                  className="block dark:text-gray-800 font-semibold mb-2"
-                  htmlFor="gender"
-                >
-                  Gender
-                </label>
-                <p className="font-light text-gray-400">
-                  Legal gender as it appears on your passport
-                </p>
-                <Field
-                  className="border border-gray-200 leading-tight px-4 py-3 rounded-md w-full"
-                  id="gender"
-                  name="gender"
-                  required
-                />
-              </div>
-            </div>
-            <div className="-mx-3 flex flex-wrap mb-6">
-              <div className="mb-6 px-4 w-full md:mb-0 md:w-1/2">
+              <div className="mb-6 px-4 w-full md:mb-0 md:w-1/3">
                 <label
                   className="block dark:text-gray-800 font-semibold mb-2"
                   htmlFor="nationality"
@@ -220,9 +147,16 @@ const AdvisorForm = () => {
                   id="nationality"
                   name="nationality"
                   required
-                />
+                  as="select"
+                >
+                  {countries.map((country) => (
+                    <option key={country.value} value={country.value}>
+                      {country.label}
+                    </option>
+                  ))}
+                </Field>
               </div>
-              <div className="px-4 w-full md:w-1/2">
+              <div className="mb-6 px-4 w-full md:mb-0 md:w-1/3">
                 <label
                   className="block dark:text-gray-800 font-semibold mb-2"
                   htmlFor="location"
@@ -237,11 +171,16 @@ const AdvisorForm = () => {
                   id="location"
                   name="location"
                   required
-                />
+                  as="select"
+                >
+                  {countries.map((country) => (
+                    <option key={country.value} value={country.value}>
+                      {country.label}
+                    </option>
+                  ))}
+                </Field>
               </div>
-            </div>
-            <div className="-mx-3 flex flex-wrap mb-6">
-              <div className="px-4 w-full">
+              <div className="px-4 w-full md:w-1/3">
                 <label
                   className="block dark:text-gray-800 font-semibold mb-2"
                   htmlFor="residence"
@@ -249,15 +188,21 @@ const AdvisorForm = () => {
                   Residence
                 </label>
                 <p className="font-light text-gray-400">
-                  What country are you legally registered in as a resident? If
-                  it's not clear the put your last known residence.
+                  Where are you legally registered in as a resident?
                 </p>
                 <Field
                   className="border border-gray-200 leading-tight px-4 py-3 rounded-md w-full"
                   id="residence"
                   name="residence"
                   required
-                />
+                  as="select"
+                >
+                  {countries.map((country) => (
+                    <option key={country.value} value={country.value}>
+                      {country.label}
+                    </option>
+                  ))}
+                </Field>
               </div>
             </div>
             <div className="-mx-3 flex flex-wrap mb-6">
@@ -282,18 +227,44 @@ const AdvisorForm = () => {
                 />
               </div>
             </div>
+            <div className="-mx-3 flex flex-wrap mb-8">
+              <div role="group" aria-labelledby="checkbox-group">
+                <div className="px-4 w-full">
+                  <h3 className="block dark:text-gray-800 font-semibold mb-2">
+                    Which services are you interested in?
+                  </h3>
+                  <p className="font-light mb-6 text-gray-400 sm:mb-4">
+                    Select all of the services you are interested in:
+                  </p>
+                  <div className="auto-rows-auto gap-x-4 gap-y-3 grid grid-cols-3 sm:gap-x-20">
+                    {SERVICES.map((service) => (
+                      <label
+                        key={service}
+                        className="cursor-pointer font-light text-gray-500 text-sm sm:text-gray-600"
+                      >
+                        <Field
+                          className="block border border-gray-200 rounded-sm sm:inline-block sm:mr-2"
+                          type="checkbox"
+                          name="services"
+                          value={service}
+                        />
+                        {service}
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="-mx-3 flex flex-wrap mb-6">
               <div className="px-4 w-full">
                 <label
                   className="block dark:text-gray-800 font-semibold mb-2"
                   htmlFor="comments"
                 >
-                  What type of service are you interested in?
+                  Comments
                 </label>
                 <p className="font-light text-gray-400">
-                  Is there a particular visa or gestor service that you are
-                  interested in? This is to help our advisors best prepare for
-                  the call.
+                  Anything else you would like us to know?
                 </p>
                 <Field
                   className="border border-gray-200 leading-tight px-4 py-3 rounded-md w-full"
@@ -308,6 +279,19 @@ const AdvisorForm = () => {
               information will be shared with third-parties for the purpose of
               providing you with the product and/or service you requested.
             </p>
+            {emailError && (
+              <p className="font-light text-red-600 text-sm">
+                Error requesting advisor. Sorry! My DMs are open on{" "}
+                <a href="https://twitter.com/RMcElearney" className="underline">
+                  Twitter
+                </a>
+              </p>
+            )}
+            {emailSuccess && (
+              <p className="font-light text-gray-600 text-sm">
+                ✅ Check your inbox, you should have a confirmation email.
+              </p>
+            )}
             <button
               className="bg-gray-800 focus:outline-none focus:ring-2 font-semibold mt-4 px-6 py-3 rounded-md text-lg text-white w-full"
               type="submit"

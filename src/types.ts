@@ -1,6 +1,5 @@
 export enum SERVICE_TYPE {
-  LAWYER = "Lawyer",
-  GESTOR = "Gestor",
+  SERVICES = "Services",
   NOMAD_WAITING_LIST = "Nomad Visa Waiting List",
 }
 
@@ -9,12 +8,10 @@ export interface AdvisorFormValues {
   lastName: string;
   email: string;
   phone: string;
-  advisorType: SERVICE_TYPE;
-  dob: string;
-  gender: string;
   nationality: string;
   location: string;
   residence: string;
+  services: string[];
   job: string;
   comments: string;
 }
@@ -26,9 +23,13 @@ export interface WaitingListFormValues {
 }
 
 export interface AdvisorRequest {
-  body: AdvisorFormValues;
+  body: AdvisorFormValues & {
+    advisorType: SERVICE_TYPE.SERVICES;
+  };
 }
 
 export interface WaitingListRequest {
-  body: WaitingListFormValues;
+  body: WaitingListFormValues & {
+    advisorType: SERVICE_TYPE.NOMAD_WAITING_LIST;
+  };
 }

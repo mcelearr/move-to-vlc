@@ -10,12 +10,18 @@ const Advisor = () => {
     <div>
       <h1 className="font-semibold mb-2 text-2xl">Speak to an advisor</h1>
       <p className="font-light mb-2">
-        Do you want help applying for a visa or getting things set up?
-        Navigating Spanish bureaucracy can be a time-consuming headache. We've
+        Navigating Spanish bureaucracy can be a time-consuming headache. We have
         partnered with some great local operators who provide professional
-        services to guide you through the process, starting with an 1 hr
-        consultation call paid for through this website. The cost for a 1 hr
-        call is €100 for an Immigration & Tax advisor and €50 for a Gestor.
+        services to guide you through the process.
+      </p>
+      <p className="font-light mb-2">
+        Do you need legal or tax advice or help applying for a visa? Start with
+        an 1 hr consultation call with an Immigration & Tax advisor.
+      </p>
+      <p className="font-light mb-2">
+        Do you want help getting a NIE, getting a bank account or setting up a
+        company? Our advisors are experts navigating the local bureaucracy and
+        know all the tips and tricks.
       </p>
       <p className="font-light mb-2">
         Are you interested in the Nomad Visa which comes out in summer 2022?

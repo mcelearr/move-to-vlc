@@ -14,19 +14,31 @@ const Admin = () => (
       <h2 className="font-semibold">📄 NIE (identity number)</h2>
       <p className="font-light">
         This is how you will be identified inside of Spain - you need it for
-        pretty much everything
-      </p>
-    </div>
-    <div className="mb-2">
-      <h2 className="font-semibold">🏦 Bank account</h2>
-      <p className="font-light">
-        You'll need a bank account to get a phone number or health insurance
+        pretty much everything. In theory you can get it from the police station
+        by booking{" "}
+        <a
+          className="underline"
+          target="_blank"
+          href="https://sede.administracionespublicas.gob.es/icpplus/citar?p=46&locale=es"
+        >
+          here
+        </a>{" "}
+        but there never seem to be appointments.
       </p>
     </div>
     <div className="mb-2">
       <h2 className="font-semibold">📞 Phone</h2>
       <p className="font-light">
-        You'll need a Spanish phone number to fill out most forms
+        You'll need a Spanish phone number to fill out most forms. To get a
+        permanent contract you will need a bank account. I recommend Pepephone.
+        You can also get a prepaid sim from Orange.
+      </p>
+    </div>
+    <div className="mb-2">
+      <h2 className="font-semibold">🏦 Bank account</h2>
+      <p className="font-light">
+        You'll need a bank account to get health insurance and pay taxes. I use
+        Openbank. You will need a phone number in order for this to work.
       </p>
     </div>
     <div className="mb-2">

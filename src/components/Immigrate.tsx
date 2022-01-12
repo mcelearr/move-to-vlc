@@ -6,14 +6,15 @@ const visas = [
       "Keep your current job and work remotely from Spain. The Spanish Government has annouced this is coming but hasn't shared the details yet. Scroll down to the section 'Speak to an advisor' and sign up to the waiting list to get live updates about this new visa and its requirements.",
     emoji: "💻",
     linkText: "Nomad Visa (coming summer 2022)",
-    linkUrl: "",
+    linkUrl: "https://www.spainvisa.eu/spain-visa-digital-nomads/",
   },
   {
     description:
       "Want to start an innovative business in Spain? There is a visa which allows you to stay for 2 years if you create a startup here. The application involves creating a business plan. I know a few people that have done this route.",
     emoji: "👔",
     linkText: "Entrepreneur Visa",
-    linkUrl: "",
+    linkUrl:
+      "https://duguechdip.com/how-to-obtain-an-entrepreneur-visa-in-spain/",
   },
   {
     description: `Get offered a well-paid job in an in-demand industry and the company might be able to sponsor you as a Highly Qualified Professional (HQP). The best techie jobs boards I know in Spain are the #hiring-job-board of <a target="_blank" style="text-decoration: underline;" href="https://join.slack.com/t/bcneng/shared_invite/zt-10pobzbnq-ipW8BfWmSkQk3qxHXKBhPw">Barcelona Engineering Slack</a> (95% job offers are remote) and the <a target="_blank" style="text-decoration: underline;" href="https://github.com/remote-es/remotes">Remote Jobs Spain repo</a>. Wages have gone up a lot in recent years with many offers now in the €60-€100k range.`,
