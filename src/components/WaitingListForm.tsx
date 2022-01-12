@@ -114,9 +114,9 @@ const WaitingListForm = () => {
               </p>
             )}
             {emailSuccess && (
-              <p className="font-light text-gray-600 text-sm">
-                Check your inbox, you should have a confirmation email from me.
-                I'll let you know when there's any news!
+              <p className="font-light mt-4 text-gray-600 text-sm">
+                ✅ Check your inbox, you should have a confirmation email. We'll
+                let you know when there's any news!
               </p>
             )}
             <button
