@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { openGraph } from "@/lib/helper";
 
 const defaultMeta = {
   title: "Move to Valencia",
@@ -28,13 +27,7 @@ export default function Seo(props: SeoProps) {
     ? `${props.templateTitle} | ${meta.siteName}`
     : meta.title;
 
-  // Use siteName if there is templateTitle
-  // but show full title if there is none
-  meta.image = openGraph({
-    description: meta.description,
-    siteName: props.templateTitle ? meta.siteName : meta.title,
-    templateTitle: props.templateTitle,
-  });
+  meta.image = "https://movetovlc.com/images/open-graph-logo.png";
 
   return (
     <Head>
