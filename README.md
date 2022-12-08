@@ -1,47 +1,18 @@
-# TypeScript Next.js example
+# MoveToVLC
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+In winter 2021, I wanted to practice using using Next.js and Typescript. I am one of the administrators of a [digital nomads community](https://t.me/valencianomadsofficial) of almost 3000 members in Valencia, Spain and one of the biggest concerns of the members that came up again and again was immigration. For people from the EU the process is pretty simple. But for people from the US, UK or Rest of World things aren't always as simple.
 
-## Preview
+So I called up some of my friends who were lawyers and asked them if they would be willing to give below-market-rate consultations on immigration if they could get some information up-front to make the consultation more efficient. I was inspired by the productization model used by Pieter Levels at [Rebase](https://rebase.co/portugal) and wanted to do something like that.
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+I launched it in the community and got good feedback on the design of the site, plus the information it contains BUT immigration law is trickier than I expected! Once I actually started to talk with the users, it became clear that there were too many edge cases, loop holes and different tax consideration to make this a viable 'product', and I have no interest in running a law office.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-typescript)
+So I left the website up for informational purposes. Feel free to check it out [here](https://movetovlc.com) and test the checkout flow. I have deployed with the **Stripe test keys** so you will not be charged for your 'purchase'. Just enter the credit card number 4242 4242 4242 4242 and any other valid details and your 'purchase' will go through.
 
-## Deploy your own
+Enjoy 🥳!
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+## Features
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript&project-name=with-typescript&repository-name=with-typescript)
-
-## How to use it?
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-typescript with-typescript-app
-# or
-yarn create next-app --example with-typescript with-typescript-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-## Notes
-
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
-
-```
-npm install --save-dev typescript
-```
-
-To enable TypeScript's features, we install the type declarations for React and Node.
-
-```
-npm install --save-dev @types/react @types/react-dom @types/node
-```
-
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
-
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
-
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+- Fully responsive design with Tailwind (should look and feel great on mobile)
+- Stripe integration
+- Sendgrid integration
+- Google analytics integration

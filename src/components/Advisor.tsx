@@ -10,13 +10,15 @@ const Advisor = () => {
     <div>
       <h1 className="font-semibold mb-2 text-2xl">Speak to an advisor</h1>
       <p className="font-light mb-2">
+        Do you want help applying for a visa or getting things set up?
         Navigating Spanish bureaucracy can be a time-consuming headache. We have
         partnered with some great local operators who provide professional
         services to guide you through the process.
       </p>
       <p className="font-light mb-2">
-        Do you need legal or tax advice or help applying for a visa? Start with
-        an 1 hr consultation call with an Immigration & Tax advisor.
+        Do you need legal or tax advice or help applying for a visa? Get started
+        with an 1 hr consultation call with an Immigration & Tax advisor for as
+        little as €50.
       </p>
       <p className="font-light mb-2">
         Do you want help getting a NIE, getting a bank account or setting up a
@@ -24,7 +26,7 @@ const Advisor = () => {
         know all the tips and tricks.
       </p>
       <p className="font-light mb-2">
-        Are you interested in the Nomad Visa which comes out in summer 2022?
+        Are you interested in the Nomad Visa which comes out in January 2023?
         Join our waiting list and we will keep you up to date with the
         requirements so you can have all your documents ready to go as soon as
         that option becomes available.

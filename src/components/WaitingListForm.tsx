@@ -99,11 +99,10 @@ const WaitingListForm = () => {
             </div>
             <p className="dark:text-gray-800 font-light">
               The Spanish Government has not released all the details about the
-              Nomad Visa yet - it is due to arrive in summer 2022. There is
-              likely to be high demand and long wait times once the scheme goes
-              live. By signing up to the waiting list you will be at the top of
-              the queue and will also have advanced warning about what documents
-              you need to provide.
+              Nomad Visa yet. There is likely to be high demand and long wait
+              times once the scheme goes live. By signing up to the waiting list
+              you will be at the top of the queue and will also have advanced
+              warning about what documents you need to provide.
             </p>
             {emailError && (
               <p className="font-light text-red-600 text-sm">

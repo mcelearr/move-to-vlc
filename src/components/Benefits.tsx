@@ -13,7 +13,7 @@ const benefits = [
   {
     header: "Affordable",
     description:
-      "You can rent a whole apartment in Valencia for around €800/month and a room for under €400/month, much less than Madrid, Barcelona or Lisbon. Food and drink, taxis, metro are all very affordable.",
+      "You can rent a whole apartment in Valencia for around €900/month and a room for around €400/month, much less than Madrid, Barcelona or Lisbon. Food and drink, taxis, metro are all very affordable.",
   },
   {
     header: "Incredible weather",
@@ -24,10 +24,6 @@ const benefits = [
     header: "Bike friendly",
     description:
       "The city has fantastic cycle lanes, and being relatively flat you can cycle anywhere - great for bike lovers! Also it only costs €26 to rent a city bike for the whole year so why not give it a try?",
-  },
-  {
-    header: "80% vaccination rate",
-    description: "Spain has one of the best vaccination rates in Europe.",
   },
 ];
 
