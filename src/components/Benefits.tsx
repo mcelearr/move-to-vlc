@@ -3,7 +3,7 @@ import Benefit from "./Benefit";
 const benefits = [
   {
     header: "Thriving Digital Nomad community",
-    description: `We have events every night of the week and groups for every taste. Check out some of our communities on <a target="_blank" style="text-decoration: underline;" href="https://t.me/valencianomads">Telegram</a> and <a target="_blank" style="text-decoration: underline;" href="https://www.meetup.com/Valencia-Digital-Nomads/">Meetup</a>. You'll find groups for tennis, board games, hiking, beach parties, no matter what you're into, you'll find your people here.`,
+    description: `We have events every night of the week and groups for every taste. Check out some of our communities on <a target="_blank" style="text-decoration: underline;" href="https://t.me/valencianomadsofficial">Telegram</a> and <a target="_blank" style="text-decoration: underline;" href="https://www.meetup.com/Valencia-Digital-Nomads/">Meetup</a>. You'll find groups for tennis, board games, hiking, beach parties, no matter what you're into, you'll find your people here.`,
   },
   {
     header: "Authentic Spanish culture",
