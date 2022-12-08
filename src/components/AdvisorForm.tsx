@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import Stripe from "stripe";
 import { Formik, Form, Field, FormikHelpers } from "formik";
 import countryList from "react-select-country-list";
 import { AdvisorFormValues } from "@/types";
 import { fetchPostJSON } from "@/utils/api-helpers";
 import { SERVICES } from "@/constants";
+import getStripe from "@/utils/get-stripe";
 
 const advisorFormInitialValues: AdvisorFormValues = {
   firstName: "",
@@ -38,8 +40,18 @@ const AdvisorForm = () => {
           { setSubmitting }: FormikHelpers<AdvisorFormValues>
         ) => {
           try {
-            const { error } = await fetchPostJSON("/api/advisor", values);
+            const checkoutSession: Stripe.Checkout.Session =
+              await fetchPostJSON("/api/advisor", values);
 
+            if ((checkoutSession as any).statusCode === 500) {
+              console.error((checkoutSession as any).message);
+              return;
+            }
+
+            const stripe = await getStripe();
+            const { error } = await stripe!.redirectToCheckout({
+              sessionId: checkoutSession.id,
+            });
             if (error) throw error;
             setEmailError(false);
             setEmailSuccess(true);
@@ -296,7 +308,7 @@ const AdvisorForm = () => {
               className="bg-gray-800 focus:outline-none focus:ring-2 font-semibold mt-4 px-6 py-3 rounded-md text-lg text-white w-full"
               type="submit"
             >
-              {isSubmitting ? "Submitting..." : "Speak to an advisor"}
+              {isSubmitting ? "Submitting..." : "Speak to an advisor for €50"}
             </button>
           </Form>
         )}

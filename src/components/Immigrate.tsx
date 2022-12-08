@@ -3,10 +3,11 @@ import Visa from "./Visa";
 const visas = [
   {
     description:
-      "Keep your current job and work remotely from Spain. The Spanish Government has annouced this is coming but hasn't shared the details yet. Scroll down to the section 'Speak to an advisor' and sign up to the waiting list to get live updates about this new visa and its requirements.",
+      "The Spanish Congress just announced details for the new Digital Nomad Visa. This enables foreign nationals to reside in Spain and work remotely for businesses that are based elsewhere. The minimum salary requirement will be between €2,000 and €3,000 monthly.",
     emoji: "💻",
-    linkText: "Nomad Visa (coming summer 2022)",
-    linkUrl: "https://www.spainvisa.eu/spain-visa-digital-nomads/",
+    linkText: "Nomad Visa (coming January 2023)",
+    linkUrl:
+      "https://www.travelinglifestyle.net/spain-is-finally-launching-digital-nomad-visa-in-january-2023/",
   },
   {
     description:
